@@ -1,7 +1,7 @@
 
 // dfs logic 
 void dfs(vector<int>adj[],int src,vector<bool>&vis,vector<int>&temp){
-	  vis[src]=true;
+    vis[src]=true;
     temp.push_back(src);
     
     for(auto neigh:adj[src]){
