@@ -19,7 +19,7 @@ public:
         return;
     }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int nc) {
-        if(image[sr][sc]==nc) return image;
+        if(image[sr][sc]==nc) return image; // important condition to remember for runtime error
         dfs(image,nc,image[sr][sc],sr,sc,image.size(),image[0].size());
         return image;
     }
