@@ -1,3 +1,9 @@
+
+/* 
+Similar approach like : Surrounded regions
+here just we have to count all the enclaves (surrounded components )
+*/
+
 class Solution {
 public:
     int dx[4]={-1,1,0,0};
