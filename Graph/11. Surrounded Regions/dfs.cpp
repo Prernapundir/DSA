@@ -1,4 +1,8 @@
-// boundry dfs
+
+/* Approach 
+1. Boundry dfs : apply the dfs on the boundry for every O and find the connected componets becoz for sure we can't convert those O's into X's
+2. Rest of the O's we can say they are surrouded , so concert them into X's
+*/
 
 class Solution {
 public:
