@@ -1,4 +1,26 @@
-// Using visityed array 
+/*
+Learnings and Approach 
+------------------------
+
+1. MultiSource BFS { putting all source together at start in the queue }
+2. SImilar to TopoSort  {process 0's cell first , then keep increasing }
+
+
+Why BFS?
+--------
+Becoz we have to find the shortest distnace , that we an find only using BFS 
+
+Why MultiSource BFS ?
+----------------------
+Becoz we have to travserse nodes with shortest distnace first , so we have to traverse level wise , 0--last level
+
+
+Steps :
+1. Put all the 0's inside the queuue
+2. Mark 1 cell with -1 {they are unvisited}
+3. Run BFS , and keep updating the distance if found cell with -1 and push back to queue as well
+
+*/
 
 class Solution {
 public:
