@@ -6,7 +6,7 @@ that can precede it which reduces the computation time significantly. }
   topological sort would work fine as we start from the first node, and then move on to the others in a directed manner.
 2. keep a distance array with intilization to INT_MAX
 3. It might be possible the source node and topoSort order would be different , so pop from the stack until you got the source node.
-3. Iterate over the topsort order one by one and do the dfs and relax the weighted nodes {update the dist array }
+4. Iterate over the topsort order one by one and do the relaxing of the weighted nodes {update the dist array }
 
 */
 class Solution {
@@ -23,20 +23,7 @@ class Solution {
         st.push(src);
         return;
     }
-    
-  //dfs
-    void dfs(int src,vector<int>&dist,vector<pair<int,int>>adj[]){
-        
-        for(auto x:adj[src]){
-            if(dist[x.first]>dist[src]+x.second){
-                dist[x.first]=dist[src]+x.second;
-                dfs(x.first,dist,adj);
-            }
-    
-        }
-        return;
-    }
-    
+
      vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
         vector<int> dist(N,INT_MAX);
         vector<pair<int,int>> adj[N];
@@ -58,11 +45,17 @@ class Solution {
             st.pop();
         }
         
-       // do the dfs to relax the nodes on toposort order
+       // do the relaxing of the nodes on toposort order
         dist[0]=0;
         while(!st.empty()){
-            dfs(st.top(),dist,adj);
+            int top=st.top();
             st.pop();
+            
+            for(auto x:adj[top]){
+                if(dist[x.first]>dist[top]+x.second){
+                    dist[x.first]=dist[top]+x.second;
+                }
+            }
         }
  
         for(int i=0;i<N;i++){
